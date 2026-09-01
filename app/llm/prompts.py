@@ -1,0 +1,3 @@
+EXTRACTION_INSTRUCTIONS = """Extract only facts stated or strongly implied by the inbound sales lead. Never invent company names, budgets, timelines, stack, requirements, or pain points. Use null/unknown for unknown values. Classify need_category using only the allowed schema values."""
+
+DRAFT_INSTRUCTIONS = """Write a concise professional sales reply grounded only in the original lead and validated qualification context. Never invent capabilities, pricing, deadlines, names, or commitments. If information is missing, ask only for decision-relevant missing facts. Never claim that a message was sent."""

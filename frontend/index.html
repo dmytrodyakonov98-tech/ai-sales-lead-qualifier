@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Sales Lead Qualifier</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <p class="eyebrow">AI SALES AUTOMATION</p>
+      <h1>AI Sales Lead Qualifier</h1>
+      <p>Structured LLM extraction. Deterministic scoring. Human-controlled action.</p>
+    </section>
+
+    <section class="panel intake-panel">
+      <form id="lead-form">
+        <label for="raw-text">Inbound website lead</label>
+        <textarea id="raw-text" minlength="10" maxlength="10000" required placeholder="Paste an inbound lead here..."></textarea>
+        <button id="submit-lead" type="submit">Qualify lead</button>
+        <p id="form-error" role="alert"></p>
+      </form>
+    </section>
+
+    <section id="result-panel" class="panel" hidden>
+      <div id="score-total"></div>
+      <div id="score-components"></div>
+      <div id="lead-facts"></div>
+      <div id="missing-info"></div>
+      <div id="recommended-action"></div>
+      <article id="draft-body"></article>
+      <button id="approve-draft" type="button">Approve</button>
+      <button id="reject-draft" type="button">Reject</button>
+    </section>
+
+    <aside class="panel history-panel">
+      <h2>Lead history</h2>
+      <div id="history-list"></div>
+    </aside>
+  </main>
+</body>
+</html>
