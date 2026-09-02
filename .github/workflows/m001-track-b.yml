@@ -1,0 +1,45 @@
+name: M001 Track B
+
+on:
+  push:
+    branches:
+      - main
+      - "m001/**"
+    paths:
+      - "m001/**"
+      - ".github/workflows/m001-track-b.yml"
+  pull_request:
+    paths:
+      - "m001/**"
+      - ".github/workflows/m001-track-b.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  track-b:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run frozen Track B suite
+        working-directory: m001
+        env:
+          PYTHONPATH: src
+        run: python -m unittest discover -s tests -v
+
+      - name: Compile Track B
+        working-directory: m001
+        run: python -m compileall -q src tests
+
+      - name: Smoke entry point
+        working-directory: m001
+        env:
+          PYTHONPATH: src
+        run: python -m sen_m001 --help
